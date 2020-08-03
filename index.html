@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>360&deg; Image</title>
     <meta name="description" content="360&deg; Image - A-Frame">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
+     <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script> 
+
   </head>
   <body>
     <a-scene>
@@ -27,19 +28,14 @@
 <a-scene>
   <a-entity
     id="cam"
-    camera="zoom: 1.2"
-    look-controls="reverseMouseDrag: true">
-      
-    </a-entity>
-
+    camera="zoom: 1"
+    look-controls="reverseMouseDrag: true; enableZoom:true "
+  ></a-entity>
   <!-- my pano image stuff -->
   <a-assets>
-    <img id="skyTexture" crossorigin="anonymous" />
+    <img src="https://i.imgur.com/T9UtqGE.jpg" id="skyTexture" crossorigin="anonymous" />
   </a-assets>
-
-
-  <a-sky src="https://i.imgur.com/T9UtqGE.jpg" rotation="0 -85 10"></a-sky>
-  <a-entity camera look-controls position="0 1.6 0"></a-entity>
-    </a-scene>
+  <a-sky src="#skyTexture"  rotation="0 -85 0"></a-sky>
+</a-scene>
   </body>
 </html>
