@@ -5,6 +5,8 @@
     <meta name="description" content="360&deg; Image - A-Frame">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
      <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script> 
+     <script src="https://morandd.github.io/aframe-multitouch-look-controls/multitouch-look-controls.js"></script>
+
 
   </head>
   <body>
@@ -25,17 +27,17 @@
     document.getElementById("cam").setAttribute("camera", mycam);
   });
 </script>
-<a-scene>
   <a-entity
     id="cam"
     camera="zoom: 1"
-    camera look-controls orbit-controls="target: 0 1.6 -0.5; minDistance: 0.5; maxDistance: 180; initialPosition: 0 5 15"
-      ></a-entity>
+    look-controls="reverseMouseDrag: true; enableZoom:true"
+    camera multitouch-look-controls
+  ></a-entity>
   <!-- my pano image stuff -->
   <a-assets>
     <img src="https://i.imgur.com/T9UtqGE.jpg" id="skyTexture" crossorigin="anonymous" />
   </a-assets>
-  <a-sky src="#skyTexture"  rotation="0 -85 15"></a-sky>
+  <a-sky src="#skyTexture"  rotation="0 -85 0"></a-sky>
 </a-scene>
   </body>
 </html>
