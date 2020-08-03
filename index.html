@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=.5, maximum-scale=12.0, minimum-scale=.25, user-scalable=yes"/>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="360&deg; Image - A-Frame">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
      <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script> 
@@ -27,11 +27,28 @@
 
     document.getElementById("cam").setAttribute("camera", mycam);
   });
+
+
+    window.addEventListener("resize", (event) => {
+    // small increments for smoother zooming
+    const delta = event.wheelDelta / 120 / 10;
+    var mycam = document.getElementById("cam").getAttribute("camera");
+    var finalZoom =
+      document.getElementById("cam").getAttribute("camera").zoom + delta;
+
+    // limiting the zoom
+    if (finalZoom < 0.5) finalZoom = 0.5;
+    if (finalZoom > 2) finalZoom = 2;
+    mycam.zoom = finalZoom;
+
+    document.getElementById("cam").setAttribute("camera", mycam);
+  });
 </script>
   <a-entity
     id="cam"
     camera="zoom: 1"
     camera multitouch-look-controls
+    look-controls="standing:false; reverseMouseDrag: true"
   ></a-entity>
   <!-- my pano image stuff -->
   <a-assets>
