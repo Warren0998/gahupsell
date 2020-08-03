@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
     <meta charset="utf-8">
     <meta name="description" content="360&deg; Image - A-Frame">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.js"></script>
@@ -27,21 +28,6 @@
     document.getElementById("cam").setAttribute("camera", mycam);
   });
 
-
-    window.addEventListener("resize", (event) => {
-    // small increments for smoother zooming
-    const delta = event.wheelDelta / 120 / 10;
-    var mycam = document.getElementById("cam").getAttribute("camera");
-    var finalZoom =
-      document.getElementById("cam").getAttribute("camera").zoom + delta;
-
-    // limiting the zoom
-    if (finalZoom < 0.5) finalZoom = 0.5;
-    if (finalZoom > 2) finalZoom = 2;
-    mycam.zoom = finalZoom;
-
-    document.getElementById("cam").setAttribute("camera", mycam);
-  });
 </script>
   <a-entity
     id="cam"
@@ -51,7 +37,7 @@
   ></a-entity>
   <!-- my pano image stuff -->
   <a-assets>
-    <img src="https://i.imgur.com/T9UtqGE.jpg" id="skyTexture" crossorigin="anonymous" />
+    <img src="https://i.imgur.com/jizl5jI.jpg" id="skyTexture" crossorigin="anonymous" />
   </a-assets>
   <a-sky src="#skyTexture"  rotation="0 -85 0"></a-sky>
 </a-scene>
